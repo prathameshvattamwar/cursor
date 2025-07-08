@@ -2,15 +2,75 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custome cursor</title>
+    <title>The Ultimate Cursor Collection</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div class="cursor"></div>
-    <h1>Prathamesh</h1>
+<body data-cursor-style="aurora">
 
+    <div class="gradient-bg"></div>
+    <canvas id="scribble-canvas"></canvas>
+
+    <div id="cursor-container">
+        <div id="cursor-dot"></div>
+        <div id="cursor-outline"></div>
+    </div>
+
+    <svg id="gooey-filter-definition" width="0" height="0">
+        <defs>
+            <filter id="gooey-filter">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -7" result="gooey" />
+                <feBlend in="SourceGraphic" in2="gooey" />
+            </filter>
+        </defs>
+    </svg>
+    
+    <div class="container">
+        <header class="hero">
+            <h1>Cursor Curations</h1>
+            <p>An unparalleled collection of interactive cursor effects. Choose a style to redefine your browsing experience.</p>
+        </header>
+
+        <main id="style-grid">
+            <div class="card active" data-style="aurora"><h2>Aurora Trail</h2><p>A vibrant ribbon of light that flows behind your cursor, mimicking the aurora borealis.</p><div class="tags"><span>#ethereal</span><span>#fluid</span></div></div>
+            <div class="card" data-style="stretchy"><h2>Elastic Warp</h2><p>The cursor deforms and stretches based on velocity, creating a fun, rubber-like effect.</p><div class="tags"><span>#dynamic</span><span>#playful</span></div></div>
+            <div class="card" data-style="comet-trail"><h2>Comet Trail</h2><p>A classic, fast-moving trail of fading particles follows your every move.</p><div class="tags"><span>#energetic</span><span>#classic</span></div></div>
+            <div class="card" data-style="orbit"><h2>Satellite Orbit</h2><p>A celestial body orbits your pointer, its distance and speed reacting to your movements.</p><div class="tags"><span>#sci-fi</span><span>#celestial</span></div></div>
+            <div class="card" data-style="ripple"><h2>Liquid Ripple</h2><p>Creates a satisfying, water-like ripple effect each time you pause your movement.</p><div class="tags"><span>#calm</span><span>#zen</span></div></div>
+            <div class="card" data-style="bubbles"><h2>Bubble Pop</h2><p>Leave a trail of shimmering bubbles that float up and pop if you touch them again.</p><div class="tags"><span>#interactive</span><span>#light</span></div></div>
+            <div class="card" data-style="gooey"><h2>Gooey</h2><p>A liquid-like metaball effect that merges the cursor elements into a single, fluid shape.</p><div class="tags"><span>#mesmerizing</span><span>#liquid</span></div></div>
+            <div class="card" data-style="pixelated"><h2>Pixelated</h2><p>A retro, blocky cursor for a nostalgic, 8-bit feel. Simple, sharp, and stylish.</p><div class="tags"><span>#retro</span><span>#8-bit</span></div></div>
+            <div class="card" data-style="text-flag"><h2>Text Flag</h2><p>A custom text label that follows your cursor like a flag, changing on hover.</p><div class="tags"><span>#utility</span><span>#informative</span></div></div>
+            <div class="card" data-style="rainbow"><h2>Rainbow</h2><p>A mesmerizing cursor that continuously cycles through the colors of the rainbow.</p><div class="tags"><span>#colorful</span><span>#vibrant</span></div></div>
+            <div class="card" data-style="clock"><h2>Clock</h2><p>A functional analog clock that follows your cursor, with moving hour, minute, and second hands.</p><div class="tags"><span>#utility</span><span>#unique</span></div></div>
+            <div class="card" data-style="fairy-dust"><h2>Fairy Dust</h2><p>A magical swarm of twinkling particles that gravitate towards your cursor like fireflies.</p><div class="tags"><span>#magical</span><span>#enchanting</span></div></div>
+            <div class="card" data-style="ghost"><h2>Ghost</h2><p>A friendly ghost follows your pointer, becoming more excited as you move faster.</p><div class="tags"><span>#spooky</span><span>#cute</span></div></div>
+            <div class="card" data-style="emoji"><h2>Emoji Swarm</h2><p>A chaotic swarm of emojis are blasted away from your cursor as you move.</p><div class="tags"><span>#fun</span><span>#chaotic</span></div></div>
+            <div class="card" data-style="snowflakes"><h2>Snowflakes</h2><p>Gentle snowflakes fall from your cursor, creating a calm, wintery atmosphere.</p><div class="tags"><span>#winter</span><span>#serene</span></div></div>
+            <div class="card" data-style="character"><h2>Character</h2><p>A simple character with eyes that follow the direction of your cursor's movement.</p><div class="tags"><span>#charming</span><span>#interactive</span></div></div>
+            <div class="card" data-style="scribble"><h2>Scribble</h2><p>Draw on the page! Hold down your mouse button to leave a temporary trail of ink.</p><div class="tags"><span>#creative</span><span>#artistic</span></div></div>
+            <div class="card" data-style="hyperspace"><h2>Hyperspace</h2><p>Tear through the fabric of the web with lines that streak past as you move.</p><div class="tags"><span>#sci-fi</span><span>#fast</span></div></div>
+        </main>
+
+        <section class="demo-area">
+            <div class="interactive-elements">
+                <a href="#" class="interactive-link">Hover Link</a>
+                <button class="magnetic-button" data-magnetic>Magnetic Button</button>
+            </div>
+            <div class="text-content">
+                <p data-text-hover>Hovering over this text demonstrates how the cursor can adapt to different elements, providing a richer user experience. Notice the subtle transformation.</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>A Fusion of Design & Code. HTML, CSS, & JS only.</p>
+        </footer>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
